@@ -48,10 +48,7 @@ Dashboard in Inventory Management
         row:
         lane:
         shelf:
-    }
-    
-
-
+    } 
 
     - category (department....)
 
