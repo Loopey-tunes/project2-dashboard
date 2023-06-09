@@ -16,7 +16,9 @@ Dashboard in Inventory Management
             - PIC (person in charge) for each department
         - Objectives (daily task, monthly targets)
         - Production:
-        
+
+- CRUD Products
+
 - CRUD Products
 
 - (bonus)Show dashboards
@@ -42,6 +44,10 @@ Dashboard in Inventory Management
     - stock: number - required
     - productionCost: number - required
     - img: string
+
+
+
+    - category (department....)
 
 
 3. (bonus) Orders:
