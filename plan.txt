@@ -5,7 +5,7 @@ Dashboard in Inventory Management
     - Auth: 
         - login 
         - logout
-    - Profile detials:
+    - Profile details:
         - Name
         - Email
         - Tel-extension
@@ -42,6 +42,12 @@ Dashboard in Inventory Management
     - stock: number - required
     - productionCost: number - required
     - img: string
+    - storageLocation: {
+        row:
+        lane:
+        shelf:
+    }
+    
 
 
 3. (bonus) Orders:
