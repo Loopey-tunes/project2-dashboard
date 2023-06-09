@@ -1,3 +1,53 @@
-Planning
-MVP:
+Planning:
+Dashboard in Inventory Management
+**MVP:
+- User can:
+    - Auth: 
+        - login 
+        - logout
+    - Profile detials:
+        - Name
+        - Email
+        - Tel-extension
+        - Department
+            - Roles: [Product Manager, Finance Manager...]
+            - Line Manager
+        - Organization Chart:
+            - PIC (person in charge) for each department
+        - Objectives (daily task, monthly targets)
+        - Production:
+        
+- CRUD Products
+
+- (bonus)Show dashboards
+    - Can CRUD dashboards ( MVP just show pictures of charts or dashboards)
+    - Can choose different chart options (pie chart, bar chart, line chart....)
+
+    - (bonus) use API from google calendar to integrate meeting set up 
+    - (bonus) search people in org and set meeting
+
+
+
+**Models: 
+1. Users:
+    - Name: string - required
+    - Email: string - required
+    - Tel-extension: string
+    - Department: string - enum - required
+        - Roles: string - enum - required: [Product Manager, Finance Manager...]
+        - Line Manager: ref: "User" (?? - can we  )
+
+2. Product:
+    - productName: string - required - unique,
+    - stock: number - required
+    - productionCost: number - required
+    - img: string
+
+
+3. (bonus) Orders:
+    - Items: [{
+        - ref: "Product" - required -
+        - Qty: number - required
+        }]
+    
 
