@@ -12,7 +12,9 @@ const express = require('express');
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
-
+hbs.registerHelper("increment", function (value) {
+  return parseInt(value) + 1;
+});
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware

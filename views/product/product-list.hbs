@@ -22,7 +22,7 @@
     <tbody>
         {{#each listOfProducts}}
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{increment @index}}</th>
             <td>{{this.name}}</td>
             <td>{{this.ref}}</td>
             <td>{{this.stock}}</td>
