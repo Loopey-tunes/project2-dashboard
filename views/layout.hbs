@@ -22,12 +22,34 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           {{#if currentUser}}
-          <a class="nav-link" href="/users/list">Users List</a>
-          <a href="/auth/logout" class="nav-link">Logout</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Users
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/users/list">List</a></li>
+              <li><a class="dropdown-item" href="/auth/signup">New User</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Inventory
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/products/list">List</a></li>
+              <li><a class="dropdown-item" href="/products/create">New Product</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          <li><a href="/auth/logout" class="nav-link">Logout</a></li>
           {{else}}
-          <a class="nav-link" href="/auth/login">Login</a>
-          <a class="nav-link" href="/auth/signup">Signup</a>
-          <a class="nav-link disabled">Users List</a>
+          <li><a class="nav-link" href="/auth/login">Login</a></li>
+          <li><a class="nav-link" href="/auth/signup">Signup</a></li>
+          <li><a class="nav-link disabled">Users List</a></li>
+          <li><a class="nav-link disabled">Product List</a></li>
+
+
+
+
           {{/if}}
         </div>
       </div>
