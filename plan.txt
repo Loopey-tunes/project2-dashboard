@@ -51,6 +51,8 @@ Dashboard in Inventory Management
     } 
 
     - category (department....)
+    - keywords []
+    - manufacture
 
 
 3. (bonus) Orders:
@@ -58,5 +60,7 @@ Dashboard in Inventory Management
         - ref: "Product" - required -
         - Qty: number - required
         }]
+
+    - Options to customize product model 
     
 
