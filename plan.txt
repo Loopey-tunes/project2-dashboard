@@ -62,5 +62,7 @@ Dashboard in Inventory Management
         }]
 
     - Options to customize product model 
+
+    Middleware for blocking routes based on role
     
 

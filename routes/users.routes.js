@@ -8,10 +8,10 @@ const isLoggedIn = require('../middleware/isLoggedIn');
 // Require the User model in order to interact with the database
 const User = require('../models/User.model');
 
+//LIST users
 router.get('/list', isLoggedIn, async (req, res, next) => {
 	try {
 		const userList = await User.find();
-		console.log('list of users:', { userList });
 		res.render('users/list', { userList });
 	} catch (error) {
 		console.log(error);
@@ -19,6 +19,7 @@ router.get('/list', isLoggedIn, async (req, res, next) => {
 	}
 });
 
+//EDIT one user
 router.get('/edit/:id', isLoggedIn, async (req, res, next) => {
 	try {
 		const userID = req.params.id;
@@ -61,6 +62,18 @@ router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
 		);
 		res.redirect('/users/list');
 	} catch (error) {
+		next(error);
+	}
+});
+
+router.get('/delete/:id', isLoggedIn, async (req, res, next) => {
+	try {
+		const userId = req.params.id;
+		console.log(userId);
+		await User.findByIdAndDelete(userId);
+		res.redirect('/users/list');
+	} catch (error) {
+		console.log(error);
 		next(error);
 	}
 });
