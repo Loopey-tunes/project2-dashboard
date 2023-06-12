@@ -32,16 +32,17 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
 });
 // // POST /products/create
 router.post("/create", isLoggedIn, async (req, res, next) => {
-  const { name, stock, image, category, keywords, manufacture } = req.body;
+  const { name, ref, stock, image, category, keywords, manufacture } = req.body;
   const location = {
     row: req.body.row,
     lane: req.body.lane,
     shelf: req.body.shelf,
   };
-  console.log(name, stock, image, category, keywords, manufacture, location);
+  console.log(name, ref, stock, image, category, keywords, manufacture, location);
   try {
     await Product.create({
       name,
+      ref,
       stock,
       image,
       location,
