@@ -1,0 +1,64 @@
+<h1>Products List</h1>
+{{#if listOfProducts}}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Product Ref.</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Img</th>
+            <th scope="col">Row</th>
+            <th scope="col">Lane</th>
+            <th scope="col">Shelf</th>
+            <th scope="col">Category</th>
+            <th scope="col">Key words</th>
+            <th scope="col">Manufacture</th>
+            <th scope="col">Edit</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listOfProducts}}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{this.name}}</td>
+            <td>{{this.ref}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.image}}</td>
+            <td>{{this.location.row}}</td>
+            <td>{{this.location.lane}}</td>
+            <td>{{this.location.shelf}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.keywords}}</td>
+            <td>{{this.manufacture}}</td>
+            <td><button onclick="window.location.href='/products/{{this.id}}/edit'" class="btn btn-primary btn-sm">Edit</button></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<button onclick="window.location.href='/products/create'" class="btn btn-primary btn-sm">Create New Product</button>
+{{else}}
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Img</th>
+            <th scope="col">Row</th>
+            <th scope="col">Lane</th>
+            <th scope="col">Shelf</th>
+            <th scope="col">Category</th>
+            <th scope="col">Key words</th>
+            <th scope="col">Manufacture</th>
+
+        </tr>
+    </thead>
+    
+</table>
+<div class="col-12 text-center">No product</div>
+<hr>
+<button onclick="window.location.href='/products/create'" class="btn btn-primary btn-sm">Create New Product</button>
+{{/if}}
