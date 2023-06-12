@@ -1,0 +1,78 @@
+{{!-- views/movie-views/movie-create.hbs --}}
+
+<h2>Create New Product(s)</h2>
+
+<div class="row">
+    <div class="col-12 fill-in-form">
+        <form action="/products/create" method="post" >
+            <div class="form-row">
+
+            <div class="form-group col-4">
+                <label>Name:
+                    <input type="text" name="name" class="form-control" />
+                </label>
+            </div>
+
+            <div class="form-group col-2">
+                <label>Stock:
+                    <input type="number" min="0" name="stock" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group col-2">
+                <label>Location-Row:
+                    <input type="number" min="0" name="row" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group col-2">
+                <label>Location-Lane:
+                    <input type="number" min="0" name="lane" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group col-2">
+                <label>Location-Shelf:
+                    <input type="number" min="0" name="shelf" class="form-control" />
+                </label>
+            </div>
+            </div>
+           
+            <div class="form-group col-4">
+                <label>Image:
+                    <input type="text" name="image" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group col-4">
+                <label>Category:
+                    <input type="text" name="category" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group col-4">
+                <label>Key words:
+                    <input type="text" name="keywords" class="form-control" />
+                </label>
+            </div>
+            <div class="form-group col-4">
+                <label>Manufacture:
+                    <input type="text" name="manufacture" class="form-control" />
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+    </div>
+</div>
+<hr>
+{{!-- <div class="row import-form">
+    <div class="col-12">
+        <form action="/products/create" method="post" enctype="multipart/form-data">
+            
+<div class="row">
+    
+            <div class="col-9 form-group">
+                <label class="ml-3 col-3" for="file">Import from CSV</label>
+                <input class="col-4" type="file" class="form-control-file" id="file" name="movie-list">
+            </div>
+            <button type="submit" class="text-center col-2   btn btn-primary">Upload</button>
+</div>
+        </form>
+    </div>
+</div> --}}

@@ -1,0 +1,34 @@
+<h1>Products List</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Img</th>
+            <th scope="col">Row</th>
+            <th scope="col">Lane</th>
+            <th scope="col">Shelf</th>
+            <th scope="col">Category</th>
+            <th scope="col">Key words</th>
+            <th scope="col">Manufacture</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listOfProducts}}
+        <tr>
+            <th scope="row">1</th>
+            <td>{{this.name}}</td>
+            <td>{{this.stock}}</td>
+            <td>{{this.image}}</td>
+            <td>{{this.location.row}}</td>
+            <td>{{this.location.lane}}</td>
+            <td>{{this.location.shelf}}</td>
+            <td>{{this.category}}</td>
+            <td>{{this.keywords}}</td>
+            <td>{{this.manufacture}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
