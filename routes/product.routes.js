@@ -1,4 +1,7 @@
+const fs = require("fs");
+const csv = require("csv-parser");
 const express = require("express");
+const upload = require("../middleware/upload");
 const router = express.Router();
 
 const Product = require("../models/Product.model");
@@ -68,6 +71,39 @@ router.get("/:productId/edit", isLoggedIn, async (req, res, next) => {
     next(e);
   }
 });
+
+// IMPORT PRODUCTS
+// // POST /products/create
+router.post(
+  "/import",
+  upload.single("product-list"),
+  async (req, res) => {
+    // console.log(
+      // "REQUEST DETAILS OF THE UPLOAD....req.file",
+      // req.file,
+      // "REQUEST DETAILS OF THE UPLOAD....req.body",
+      // req.body
+    // );
+    const results = [];
+
+    fs.createReadStream(req.file.path)
+      .pipe(csv())
+      .on("data", (data) => results.push(data))
+      .on("end", async () => {
+        try {
+          const products = await Product.create(results);
+          console.log("THIS IS LIST OF PRODUCTS IMPORTED--------",products)
+          res.render("product/product-import", { products });
+        } catch (
+          e
+          // handle error
+        ) {
+          console.error(e);
+          res.status(500).send("Error occurred when create products by imported");
+        }
+      });
+  }
+);
 
 // // PUT /products/:productId/edit
 router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {

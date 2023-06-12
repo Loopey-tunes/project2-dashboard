@@ -1,95 +1,100 @@
-<h2 class="m-1">Create New Product(s)</h2>
+<h2 class="m-1 mb-4">Create New Product(s)</h2>
 
-        <form action="/products/create" method="POST" class="m-3" >
-<div class="row">
-    <div class="col-6">
-        <div class="mb-3">
-            <label for="name" class="form-label">Product Name</label>
-            <input type="text" class="form-control" id="name" name="name" >
-        </div>
+<h4 class="m-1"></h4>
+<div class="d-flex flex-row-reverse">
+
+<form class="form-inline row" action="/products/import" method="post" enctype="multipart/form-data">
+
+    <div class="form-inline from-group col col-8">
+    <label for="file">Import from CSV</label>
+        <input type="file" class="form-inline form-control form-control-file" id="file"
+            aria-label="Import from CSV" placeholder="Import CSV" name="product-list">
     </div>
-    <div class="col-4">
-        <div class="mb-3">
-            <label for="ref" class="form-label">Product Ref.</label>
-            <input type="text" class="form-control" id="ref" name="ref" >
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="mb-3">
-            <label for="stock" class="form-label">Stock</label>
-            <input type="number" class="form-control" id="stock" name="stock" >
-        </div>
+    <div class="col col-1">
+        <button type="submit" class="btn btn-primary btn-sm text-center mt-4">Upload</button>
     </div>
 
+
+</form>
 </div>
-<div class="row">
-    <div class="col-3">
-        <div class="mb-3">
-            <label for="row" class="form-label">Location - Row</label>
-            <input type="text" class="form-control" id="row" name="row" >
-        </div>
-    </div>
-    <div class="col-3">
-        <div class="mb-3">
-            <label for="lane" class="form-label">Location - Lane</label>
-            <input type="text" class="form-control" id="lane" name="lane" >
-        </div>
-    </div>
-    <div class="col-3">
-        <div class="mb-3">
-            <label for="shelf" class="form-label">Location - Shelf</label>
-            <input type="text" class="form-control" id="shelf" name="shelf" >
-        </div>
-    </div>
-    <div class="col-3">
-        <div class="mb-3">
-            <label for="image" class="form-label">Product Image</label>
-            <input type="text" class="form-control" id="image" name="image">
-        </div>
-    </div>
+<hr>
 
-</div>
-<div class="row">
-    <div class="col-4">
-        <div class="mb-3">
-            <label for="category" class="form-label">Category</label>
-            <input type="text" class="form-control" id="category" name="category">
+<form action="/products/create" method="POST" class="m-3" >
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="name" name="name" >
+            </div>
         </div>
-    </div>
-    <div class="col-4">
-        <div class="mb-3">
-            <label for="keywords" class="form-label">Key words</label>
-            <input type="text" class="form-control" id="keywords" name="keywords">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="ref" class="form-label">Product Ref.</label>
+                <input type="text" class="form-control" id="ref" name="ref" >
+            </div>
         </div>
-    </div>
-    <div class="col-4">
-        <div class="mb-3">
-            <label for="manufacture" class="form-label">Manufacture</label>
-            <input type="text" class="form-control" id="manufacture" name="manufacture">
+        <div class="col-2">
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock" >
+            </div>
         </div>
+
     </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="row" class="form-label">Location - Row</label>
+                <input type="text" class="form-control" id="row" name="row" >
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="lane" class="form-label">Location - Lane</label>
+                <input type="text" class="form-control" id="lane" name="lane" >
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="shelf" class="form-label">Location - Shelf</label>
+                <input type="text" class="form-control" id="shelf" name="shelf" >
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="image" class="form-label">Product Image</label>
+                <input type="text" class="form-control" id="image" name="image">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" name="category">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="keywords" class="form-label">Key words</label>
+                <input type="text" class="form-control" id="keywords" name="keywords">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="manufacture" class="form-label">Manufacture</label>
+                <input type="text" class="form-control" id="manufacture" name="manufacture">
+            </div>
+        </div>
 
 
-</div>
-<div class="row">
+    </div>
+    <div class="row">
 
-    <button type="submit" class="col-1 btn btn-primary">Update</button>
-</div>
+        <button type="submit" class="col-1 btn btn-primary">Update</button>
+    </div>
 </form>
     
-<hr>
-{{!-- <div class="row import-form">
-    <div class="col-12">
-        <form action="/products/create" method="post" enctype="multipart/form-data">
-            
-<div class="row">
-    
-            <div class="col-9 form-group">
-                <label class="ml-3 col-3" for="file">Import from CSV</label>
-                <input class="col-4" type="file" class="form-control-file" id="file" name="movie-list">
-            </div>
-            <button type="submit" class="text-center col-2   btn btn-primary">Upload</button>
-</div>
-        </form>
-    </div>
-</div> --}}
+
+
