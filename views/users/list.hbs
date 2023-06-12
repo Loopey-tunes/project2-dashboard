@@ -1,7 +1,6 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Department</th>
@@ -13,7 +12,10 @@
     <tbody>
         {{#each userList}}
         <tr>
-            <td scope="row">{{this.id}}</td>
+            <td>
+                <button onclick="window.location.href='/users/edit/{{this._id}}'" class="btn btn-primary">Edit</button>
+
+            </td>
             <td>{{this.fullName.firstName}} {{this.fullName.lastName}}</td>
             <td>{{this.email}}</td>
             <td>{{this.department}} ({{this.role}})</td>

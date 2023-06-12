@@ -16,7 +16,18 @@ router.get('/list', isLoggedIn, async (req, res, next) => {
 		console.log('list of users:', { userList });
 		res.render('users/list', { userList });
 	} catch (error) {
-		res.send(error);
+		console.log(error);
+		next(error);
+	}
+});
+
+router.get('/edit/:id', isLoggedIn, async (req, res, next) => {
+	try {
+		const userID = req.params.id;
+		const userInfo = await User.findById(userID);
+		res.render('users/edit', { userInfo });
+	} catch (error) {
+		next(error);
 	}
 });
 
