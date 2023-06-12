@@ -1,0 +1,84 @@
+<form method="POST" action="/users/update" class="m-3">
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="fullName.firstName"
+                    value="{{userInfo.fullName.firstName}}">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="fullName.lastName"
+                    value="{{userInfo.fullName.lastName}}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" value="{{userInfo.username}}">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{userInfo.fullName.email}}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" name="location"
+                    value="{{userInfo.fullName.location}}">
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="department" class="form-label">Department</label>
+                <select class="form-select" id="department" name="department">
+                    <option value="Production">Production</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Financial">Financial</option>
+                    <option value="Executive Management">Executive Management</option>
+                    <option value="Information and Technology">Information and Technology</option>
+                    <option value="Quality Assurance">Quality Assurance</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Marketing">Marketing</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <select class="form-select" id="role" name="role">
+                    <option value="Manager">Manager</option>
+                    <option value="Administrator">Administrator</option>
+                    <option value="Member">Member</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="telephone" class="form-label">Telephone</label>
+                <input type="text" class="form-control" id="telephone" name="telephone"
+                    value="{{userInfo.fullName.telephone}}">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" value="*************">
+            </div>
+        </div>
+    </div>
+    </div>

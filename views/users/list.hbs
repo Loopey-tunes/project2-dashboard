@@ -1,0 +1,27 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Department</th>
+            <th scope="col">Location</th>
+            <th scope="col">Telephone</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#each userList}}
+        <tr>
+            <td>
+                <button onclick="window.location.href='/users/edit/{{this._id}}'" class="btn btn-primary">Edit</button>
+
+            </td>
+            <td>{{this.fullName.firstName}} {{this.fullName.lastName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.department}} ({{this.role}})</td>
+            <td>{{this.location}}</td>
+            <td>{{this.telefone}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
