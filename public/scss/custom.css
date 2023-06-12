@@ -1,18 +1,18 @@
 @charset "UTF-8";
 body {
-  background-color: #f8f8f8;
-  color: #333333;
+  background-color: #002b5b;
+  color: #e4dccf;
 }
 
 button {
-  background-color: #007bff;
-  color: #ffffff;
+  background-color: #002b5b;
+  color: #ea5455;
 }
 
 input {
-  background-color: #f8f8f8;
-  color: #333333;
-  border-color: #6c757d;
+  background-color: #002b5b;
+  color: #e4dccf;
+  border-color: #ea5455;
 }
 
 :root,

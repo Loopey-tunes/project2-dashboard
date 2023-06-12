@@ -6,15 +6,17 @@
 
 // 2. Include any default variable overrides here
 // Base Colors
-$primary-color: #007bff; // Blue
-$secondary-color: #6c757d; // Gray
+$primary-color: #002b5b;
+$secondary-color: #ea5455;
+$tertiary-color: #e4dccf;
+$quaternary-color: #f9f5eb;
 
 // Text Colors
-$text-primary: #333333; // Dark gray
-$text-secondary: #ffffff; // White
+$text-primary: $tertiary-color; // Dark gray
+$text-secondary: $secondary-color;
 
 // Background Colors
-$background-primary: #f8f8f8; // Light gray
+$background-primary: #002b5b; // Light gray
 $background-secondary: #ffffff; // White
 
 // Accent Colors
