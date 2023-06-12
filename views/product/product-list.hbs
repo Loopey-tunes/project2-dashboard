@@ -1,7 +1,7 @@
-<h1>Products List</h1>
+<h1 class="m-1">Products List</h1>
 {{#if listOfProducts}}
 
-<table class="table">
+<table class="table p-4">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -38,9 +38,9 @@
         {{/each}}
     </tbody>
 </table>
-<button onclick="window.location.href='/products/create'" class="btn btn-primary btn-sm">Create New Product</button>
+<button onclick="window.location.href='/products/create'" class="m-3 btn btn-primary btn-sm">Create New Product</button>
 {{else}}
-<table class="table">
+<table class="table p-4">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -60,5 +60,5 @@
 </table>
 <div class="col-12 text-center">No product</div>
 <hr>
-<button onclick="window.location.href='/products/create'" class="btn btn-primary btn-sm">Create New Product</button>
+<button onclick="window.location.href='/products/create'" class="m-3 btn btn-primary btn-sm">Create New Product</button>
 {{/if}}
