@@ -21,18 +21,18 @@
     <tbody>
         {{#each products}}
         <tr>
-            <th scope="row">{{increment @index}}</th> {{!--to show increment list --}}
-            <td>{{this.name}}</td>
-            <td>{{this.ref}}</td>
-            <td>{{this.stock}}</td>
-            <td>{{this.image}}</td>
-            <td>{{this.location.row}}</td>
-            <td>{{this.location.lane}}</td>
-            <td>{{this.location.shelf}}</td>
-            <td>{{this.category}}</td>
-            <td>{{this.keywords}}</td>
-            <td>{{this.manufacture}}</td>
-            <td><button onclick="window.location.href='/products/{{this.id}}/edit'"
+            <th scope="row"class="align-middle" >{{increment @index}}</th> {{!--to show increment list --}}
+            <td class="align-middle">{{this.name}}</td>
+            <td class="align-middle">{{this.ref}}</td>
+            <td class="align-middle">{{this.stock}}</td>
+            <td class="align-middle">{{this.image}}</td>
+            <td class="align-middle">{{this.location.row}}</td>
+            <td class="align-middle">{{this.location.lane}}</td>
+            <td class="align-middle">{{this.location.shelf}}</td>
+            <td class="align-middle">{{this.category}}</td>
+            <td class="align-middle">{{this.keywords}}</td>
+            <td class="align-middle">{{this.manufacture}}</td>
+            <td class="align-middle"><button onclick="window.location.href='/products/{{this.id}}/edit'"
                     class="btn btn-primary btn-sm">Edit</button></td>
         </tr>
         {{/each}}
