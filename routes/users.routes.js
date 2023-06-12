@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-const mongoose = require('mongoose');
-
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require('../middleware/isLoggedOut');
 const isLoggedIn = require('../middleware/isLoggedIn');
@@ -26,6 +24,42 @@ router.get('/edit/:id', isLoggedIn, async (req, res, next) => {
 		const userID = req.params.id;
 		const userInfo = await User.findById(userID);
 		res.render('users/edit', { userInfo });
+	} catch (error) {
+		next(error);
+	}
+});
+
+router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
+	try {
+		const {
+			'fullName.firstName': firstName,
+			'fullName.lastName': lastName,
+			username,
+			email,
+			location,
+			department,
+			role,
+			telephone,
+			password,
+		} = req.body;
+
+		const userId = req.params.id;
+		const userInfo = await User.findByIdAndUpdate(
+			userId,
+			{
+				firstName,
+				lastName,
+				username,
+				email,
+				location,
+				department,
+				role,
+				telephone,
+				password,
+			},
+			{ new: true }
+		);
+		res.redirect('/users/list');
 	} catch (error) {
 		next(error);
 	}
