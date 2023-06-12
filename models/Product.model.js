@@ -1,34 +1,45 @@
-const { mongoose, Schema, model} = require("mongoose");
+const { mongoose, Schema, model } = require("mongoose");
 
-const ProductSchema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-        },
-        stock: {
-            type: Number,
-            required: true,
-        },
-        img: {
-            type: String,
-            required: true,
-        },
-        location: {
-            row: {
-                type: String,
-            }, 
-            lane: {
-                type: String,
-            }, 
-            shelf: {
-                type: String,
-            } 
-        }
+const productSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    {
-        timestamps: true
-    }
+    stock: {
+      type: Number,
+      required: true,
+    },
+    image: {
+      type: String,
+      default: "/images/no-image.jpg",
+    },
+    location: {
+      row: {
+        type: String,
+      },
+      lane: {
+        type: String,
+      },
+      shelf: {
+        type: String,
+      },
+    },
+    category: {
+      type: String,
+      default: "Uncategorized",
+    },
+    keywords: [String],
+
+    manufacture: {
+      type: String,
+      require: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
 );
 const Product = model("Product", productSchema);
 
