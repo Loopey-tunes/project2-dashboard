@@ -15,6 +15,7 @@
             <th scope="col">Category</th>
             <th scope="col">Key words</th>
             <th scope="col">Manufacture</th>
+            <th scope="col">Edit</th>
 
         </tr>
     </thead>
@@ -32,10 +33,12 @@
             <td>{{this.category}}</td>
             <td>{{this.keywords}}</td>
             <td>{{this.manufacture}}</td>
+            <td><button onclick="window.location.href='/products/{{this.id}}/edit'" class="btn btn-primary btn-sm">Edit</button></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+<button onclick="window.location.href='/products/create'" class="btn btn-primary btn-sm">Create New Product</button>
 {{else}}
 <table class="table">
     <thead class="thead-dark">
@@ -56,4 +59,6 @@
     
 </table>
 <div class="col-12 text-center">No product</div>
+<hr>
+<button onclick="window.location.href='/products/create'" class="btn btn-primary btn-sm">Create New Product</button>
 {{/if}}

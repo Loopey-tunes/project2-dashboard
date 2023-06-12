@@ -1,0 +1,80 @@
+<form method="POST" action="/products/{{productToEdit.id}}/edit" class="m-3">
+    <div class="row">
+        <div class="col-6">
+            <div class="mb-3">
+                <label for="name" class="form-label">Product Name</label>
+                <input type="text" class="form-control" id="name" name="name"
+                    value="{{productToEdit.name}}">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="ref" class="form-label">Product Ref.</label>
+                <input type="text" class="form-control" id="ref" name="ref"
+                    value="{{productToEdit.ref}}">
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control" id="stock" name="stock"
+                    value="{{productToEdit.stock}}">
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="row" class="form-label">Location - Row</label>
+                <input type="text" class="form-control" id="row" name="row" value="{{productToEdit.location.row}}">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="lane" class="form-label">Location - Lane</label>
+                <input type="text" class="form-control" id="lane" name="lane" value="{{productToEdit.location.lane}}">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="shelf" class="form-label">Location - Shelf</label>
+                <input type="text" class="form-control" id="shelf" name="shelf" value="{{productToEdit.location.shelf}}">
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mb-3">
+                <label for="image" class="form-label">Product Image</label>
+                <input type="text" class="form-control" id="image" name="image" value="{{productToEdit.image}}">
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" name="category"
+                    value="{{productToEdit.category}}">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="keywords" class="form-label">Key words</label>
+                <input type="text" class="form-control" id="keywords" name="keywords"
+                    value="{{productToEdit.keywords}}">
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="mb-3">
+                <label for="manufacture" class="form-label">Manufacture</label>
+                <input type="text" class="form-control" id="manufacture" name="manufacture"
+                    value="{{productToEdit.manufacture}}">
+            </div>
+        </div>
+
+        
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
+   
