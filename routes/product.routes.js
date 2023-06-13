@@ -81,19 +81,6 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
   }
 });
 
-// EDIT PRODUCT
-// // GET /products/:productId/edit
-router.get("/:productId/edit", isLoggedIn, async (req, res, next) => {
-  try {
-    const productId = req.params.productId;
-    const productToEdit = await Product.findById(productId);
-    res.render("product/product-edit", { productToEdit });
-  } catch (e) {
-    console.log("error to show update product form", e);
-    next(e);
-  }
-});
-
 // IMPORT PRODUCTS
 // // POST /products/create
 router.post("/import", upload.single("product-list"), async (req, res) => {
@@ -134,7 +121,6 @@ router.post("/import", upload.single("product-list"), async (req, res) => {
       }
       try {
         const products = await Product.create(results);
-        console.log("THIS IS LIST OF PRODUCTS IMPORTED--------", products);
         res.render("product/product-import", { products });
       } catch (
         e
@@ -180,19 +166,7 @@ router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
     lane: req.body.lane,
     shelf: req.body.shelf,
   };
-  console.log(
-    "THIS IS THE ID",
-    productId,
-    "THIS IS UPDATED PRODUCT",
-    name,
-    ref,
-    stock,
-    image,
-    category,
-    keywords,
-    manufacturer,
-    location
-  );
+
   try {
     const updatedProduct = await Product.findByIdAndUpdate(
       productId,

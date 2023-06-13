@@ -1,10 +1,12 @@
 <h2 class="m-1 mb-4">Create New Product(s)</h2>
 
-<h4 class="m-1"></h4>
+<hr>
+    {{#if errorMessage}}
+        <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
+    {{/if}}
 <div class="d-flex flex-row-reverse">
-
     <form class="form-inline row" action="/products/import" method="post" enctype="multipart/form-data">
-
+       
         <div class="form-inline from-group col col-8">
             <label for="file">Import from CSV</label>
             <input type="file" class="form-inline form-control form-control-file" id="file" aria-label="Import from CSV"
@@ -20,9 +22,6 @@
 <hr>
 
 <form action="/products/create" method="POST" class="m-3">
-    {{#if errorMessage}}
-        <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
-    {{/if}}
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
