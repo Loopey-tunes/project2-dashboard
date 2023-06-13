@@ -102,7 +102,7 @@ router.post('/import', upload.single('product-list'), async (req, res) => {
 		});
 });
 
-// // PUT /products/:productId/edit
+// // POST /products/:productId/edit
 router.post('/:productId/edit', isLoggedIn, async (req, res, next) => {
 	const productId = req.params.productId;
 	const { name, ref, stock, image, category, keywords, manufacturer } =
@@ -160,4 +160,18 @@ router.get('/:productId/delete', isLoggedIn, async (req, res, next) => {
 		next(e);
 	}
 });
+
+// SHOW PRODUCT DETAILS
+// // GET /products/:productId
+router.get("/:productId", isLoggedIn, async (req, res, next) => {
+  try {
+    const productId = req.params.productId;
+    const productToView = await Product.findById(productId);
+    res.render("product/product-details", { productToView });
+  } catch (e) {
+    console.log("error to show product details", e);
+    next(e);
+  }
+});
+
 module.exports = router;
