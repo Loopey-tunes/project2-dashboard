@@ -1,5 +1,5 @@
 const fs = require("fs");
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const csv = require("csv-parser");
 const express = require("express");
 const upload = require("../middleware/upload");
@@ -41,9 +41,9 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
     row: req.body.row,
     lane: req.body.lane,
     shelf: req.body.shelf,
-	};
-	
-	//Validate if all required fields are provided
+  };
+
+  //Validate if all required fields are provided
   if (!name || !ref || !stock || !manufacturer) {
     res.render("product/product-create", {
       errorMessage: "All fields (*) are mandatory.",
@@ -51,30 +51,34 @@ router.post("/create", isLoggedIn, async (req, res, next) => {
     return;
   }
 
-	try {
-		await Product.create({
-			name,
-			ref,
-			stock,
-			image,
-			location,
-			category,
-			keywords,
-			manufacturer,
-		});
-		res.redirect("/products/list");
-	} catch (e) {
-		console.log("error to post request when creating new product", e);
-		if (e instanceof mongoose.Error.ValidationError) {
-			console.log("this is a mongoose validator error")
-			res.status(400).render('product/product-create', { errorMessage: e.message })
-		} else if (e.code === 11000) {
-			res.status(400).render('product/product-create', { errorMessage: 'Product Reference needs to be unique.' });
-		} else {
-			console.log("this is NOT a mongoose validator error");
-			next(e);
-		}
-	}
+  try {
+    await Product.create({
+      name,
+      ref,
+      stock,
+      image,
+      location,
+      category,
+      keywords,
+      manufacturer,
+    });
+    res.redirect("/products/list");
+  } catch (e) {
+    console.log("error to post request when creating new product", e);
+    if (e instanceof mongoose.Error.ValidationError) {
+      console.log("this is a mongoose validator error");
+      res
+        .status(400)
+        .render("product/product-create", { errorMessage: e.message });
+    } else if (e.code === 11000) {
+      res.status(400).render("product/product-create", {
+        errorMessage: "Product Reference needs to be unique.",
+      });
+    } else {
+      console.log("this is NOT a mongoose validator error");
+      next(e);
+    }
+  }
 });
 
 // EDIT PRODUCT
@@ -100,11 +104,34 @@ router.post("/import", upload.single("product-list"), async (req, res) => {
   // req.body
   // );
   const results = [];
-
+  if (!req.file) {
+    res.render("product/product-create", {
+      errorMessage: "No file was uploaded.",
+    });
+    return;
+  }
   fs.createReadStream(req.file.path)
     .pipe(csv())
-    .on("data", (data) => results.push(data))
+    .on("data", (data) => {
+      // Check if all required fields exist in the data row
+      if (!data.name || !data.ref || !data.stock) {
+        res.render("product/product-create", {
+          errorMessage:
+            "Product Name, Product Ref., and Stock are mandatory fields.",
+        });
+        return;
+      }
+
+      results.push(data);
+    })
     .on("end", async () => {
+      // Check if any data is present
+      if (results.length === 0) {
+        res.render("product/product-create", {
+          errorMessage: "The uploaded CSV file is empty.",
+        });
+        return;
+      }
       try {
         const products = await Product.create(results);
         console.log("THIS IS LIST OF PRODUCTS IMPORTED--------", products);
@@ -113,12 +140,36 @@ router.post("/import", upload.single("product-list"), async (req, res) => {
         e
         // handle error
       ) {
-        console.error(e);
-        res.status(500).send("Error occurred when create products by imported");
+        console.log("error when creating new product by importing from csv", e);
+        if (e instanceof mongoose.Error.ValidationError) {
+          console.log("this is a mongoose validator error");
+          res
+            .status(400)
+            .render("product/product-create", { errorMessage: e.message });
+        } else if (e.code === 11000) {
+          res.status(400).render("product/product-create", {
+            errorMessage: "Product Reference needs to be unique.",
+          });
+        } else {
+          console.log("this is NOT a mongoose validator error");
+          next(e);
+        }
       }
     });
 });
 
+// EDIT PRODUCT
+// // GET /products/:productId/edit
+router.get("/:productId/edit", isLoggedIn, async (req, res, next) => {
+  try {
+    const productId = req.params.productId;
+    const productToEdit = await Product.findById(productId);
+    res.render("product/product-edit", { productToEdit });
+  } catch (e) {
+    console.log("error to show update product form", e);
+    next(e);
+  }
+});
 // // POST /products/:productId/edit
 router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
   const productId = req.params.productId;
@@ -195,22 +246,22 @@ module.exports = router;
 
 //Search with filters
 
-router.post('/search', isLoggedIn, async (req, res, next) => {
-	console.log('route called');
-	try {
-		//building the query in JSON format
-		const { filter, input } = req.body;
+router.post("/search", isLoggedIn, async (req, res, next) => {
+  console.log("route called");
+  try {
+    //building the query in JSON format
+    const { filter, input } = req.body;
 
-		const query = {};
-		query[filter] = { $regex: new RegExp(input, 'i') }; //regex to make it case insensitive
+    const query = {};
+    query[filter] = { $regex: new RegExp(input, "i") }; //regex to make it case insensitive
 
-		console.log('query: ', query);
-		const listOfProducts = await Product.find(query);
-		console.log('product list: ', listOfProducts);
+    console.log("query: ", query);
+    const listOfProducts = await Product.find(query);
+    console.log("product list: ", listOfProducts);
 
-		res.render('product/product-list', { listOfProducts });
-	} catch (error) {
-		console.log(error);
-		next(error);
-	}
+    res.render("product/product-list", { listOfProducts });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
 });
