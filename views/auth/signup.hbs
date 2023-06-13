@@ -1,6 +1,10 @@
 <div id="form">
   <h2>Sign Up</h2>
   <form action="/auth/signup" method="POST">
+    
+    {{#if errorMessage}}
+      <p class="error alert alert-warning col-8" role="alert">{{errorMessage}}</p>
+    {{/if}}
 
     <label> Last name
       <input type="text" name="lastName" placeholder="Your last name" />
@@ -31,8 +35,6 @@
     <button type="submit">Sign Up</button>
 
 
-    {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-    {{/if}}
+
   </form>
 </div>

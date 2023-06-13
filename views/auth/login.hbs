@@ -1,6 +1,10 @@
 <div id="login-form">
   <h2>Log In</h2>
   <form action="/auth/login" method="POST">
+    
+    {{#if errorMessage}}
+      <p class="error alert alert-warning col-8" role="alert">{{errorMessage}}</p>
+    {{/if}}
 
     <label> Username
       <input type="text" name="username" placeholder="Your username" />
@@ -17,8 +21,5 @@
     <button type="submit">Log In</button>
 
 
-    {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-    {{/if}}
   </form>
 </div>
