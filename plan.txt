@@ -52,7 +52,7 @@ Dashboard in Inventory Management
 
     - category (department....)
     - keywords []
-    - manufacture
+    - manufacturer
 
 
 3. (bonus) Orders:

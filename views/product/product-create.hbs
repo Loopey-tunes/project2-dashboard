@@ -3,40 +3,40 @@
 <h4 class="m-1"></h4>
 <div class="d-flex flex-row-reverse">
 
-<form class="form-inline row" action="/products/import" method="post" enctype="multipart/form-data">
+    <form class="form-inline row" action="/products/import" method="post" enctype="multipart/form-data">
 
-    <div class="form-inline from-group col col-8">
-    <label for="file">Import from CSV</label>
-        <input type="file" class="form-inline form-control form-control-file" id="file"
-            aria-label="Import from CSV" placeholder="Import CSV" name="product-list">
-    </div>
-    <div class="col col-1">
-        <button type="submit" class="btn btn-primary btn-sm text-center mt-4">Upload</button>
-    </div>
+        <div class="form-inline from-group col col-8">
+            <label for="file">Import from CSV</label>
+            <input type="file" class="form-inline form-control form-control-file" id="file" aria-label="Import from CSV"
+                placeholder="Import CSV" name="product-list">
+        </div>
+        <div class="col col-1">
+            <button type="submit" class="btn btn-primary btn-sm text-center mt-4">Upload</button>
+        </div>
 
 
-</form>
+    </form>
 </div>
 <hr>
 
-<form action="/products/create" method="POST" class="m-3" >
+<form action="/products/create" method="POST" class="m-3">
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
                 <label for="name" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="name" name="name" >
+                <input type="text" class="form-control" id="name" name="name">
             </div>
         </div>
         <div class="col-4">
             <div class="mb-3">
                 <label for="ref" class="form-label">Product Ref.</label>
-                <input type="text" class="form-control" id="ref" name="ref" >
+                <input type="text" class="form-control" id="ref" name="ref">
             </div>
         </div>
         <div class="col-2">
             <div class="mb-3">
                 <label for="stock" class="form-label">Stock</label>
-                <input type="number" class="form-control" id="stock" name="stock" >
+                <input type="number" class="form-control" id="stock" name="stock">
             </div>
         </div>
 
@@ -45,19 +45,19 @@
         <div class="col-3">
             <div class="mb-3">
                 <label for="row" class="form-label">Location - Row</label>
-                <input type="text" class="form-control" id="row" name="row" >
+                <input type="text" class="form-control" id="row" name="row">
             </div>
         </div>
         <div class="col-3">
             <div class="mb-3">
                 <label for="lane" class="form-label">Location - Lane</label>
-                <input type="text" class="form-control" id="lane" name="lane" >
+                <input type="text" class="form-control" id="lane" name="lane">
             </div>
         </div>
         <div class="col-3">
             <div class="mb-3">
                 <label for="shelf" class="form-label">Location - Shelf</label>
-                <input type="text" class="form-control" id="shelf" name="shelf" >
+                <input type="text" class="form-control" id="shelf" name="shelf">
             </div>
         </div>
         <div class="col-3">
@@ -83,8 +83,8 @@
         </div>
         <div class="col-4">
             <div class="mb-3">
-                <label for="manufacture" class="form-label">Manufacture</label>
-                <input type="text" class="form-control" id="manufacture" name="manufacture">
+                <label for="manufacturer" class="form-label">Manufacturer</label>
+                <input type="text" class="form-control" id="manufacturer" name="manufacturer">
             </div>
         </div>
 
@@ -95,6 +95,3 @@
         <button type="submit" class="col-1 btn btn-primary">Update</button>
     </div>
 </form>
-    
-
-

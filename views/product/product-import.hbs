@@ -13,7 +13,7 @@
             <th scope="col">Shelf</th>
             <th scope="col">Category</th>
             <th scope="col">Key words</th>
-            <th scope="col">Manufacture</th>
+            <th scope="col">Manufacturer</th>
             <th scope="col">Edit</th>
 
         </tr>
@@ -21,7 +21,7 @@
     <tbody>
         {{#each products}}
         <tr>
-            <th scope="row"class="align-middle" >{{increment @index}}</th> {{!--to show increment list --}}
+            <th scope="row" class="align-middle">{{increment @index}}</th> {{!--to show increment list --}}
             <td class="align-middle">{{this.name}}</td>
             <td class="align-middle">{{this.ref}}</td>
             <td class="align-middle">{{this.stock}}</td>
@@ -31,7 +31,7 @@
             <td class="align-middle">{{this.location.shelf}}</td>
             <td class="align-middle">{{this.category}}</td>
             <td class="align-middle">{{this.keywords}}</td>
-            <td class="align-middle">{{this.manufacture}}</td>
+            <td class="align-middle">{{this.manufacturer}}</td>
             <td class="align-middle"><button onclick="window.location.href='/products/{{this.id}}/edit'"
                     class="btn btn-primary btn-sm">Edit</button></td>
         </tr>

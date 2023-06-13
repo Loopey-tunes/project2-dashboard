@@ -5,25 +5,22 @@
         <div class="col-6">
             <div class="mb-3">
                 <label for="name" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="name" name="name"
-                    value="{{productToEdit.name}}">
+                <input type="text" class="form-control" id="name" name="name" value="{{productToEdit.name}}">
             </div>
         </div>
         <div class="col-4">
             <div class="mb-3">
                 <label for="ref" class="form-label">Product Ref.</label>
-                <input type="text" class="form-control" id="ref" name="ref"
-                    value="{{productToEdit.ref}}">
+                <input type="text" class="form-control" id="ref" name="ref" value="{{productToEdit.ref}}">
             </div>
         </div>
         <div class="col-2">
             <div class="mb-3">
                 <label for="stock" class="form-label">Stock</label>
-                <input type="number" class="form-control" id="stock" name="stock"
-                    value="{{productToEdit.stock}}">
+                <input type="number" class="form-control" id="stock" name="stock" value="{{productToEdit.stock}}">
             </div>
         </div>
-        
+
     </div>
     <div class="row">
         <div class="col-3">
@@ -41,7 +38,8 @@
         <div class="col-3">
             <div class="mb-3">
                 <label for="shelf" class="form-label">Location - Shelf</label>
-                <input type="text" class="form-control" id="shelf" name="shelf" value="{{productToEdit.location.shelf}}">
+                <input type="text" class="form-control" id="shelf" name="shelf"
+                    value="{{productToEdit.location.shelf}}">
             </div>
         </div>
         <div class="col-3">
@@ -69,25 +67,24 @@
         </div>
         <div class="col-4">
             <div class="mb-3">
-                <label for="manufacture" class="form-label">Manufacture</label>
-                <input type="text" class="form-control" id="manufacture" name="manufacture"
-                    value="{{productToEdit.manufacture}}">
+                <label for="manufacturer" class="form-label">Manufacturer</label>
+                <input type="text" class="form-control" id="manufacturer" name="manufacturer"
+                    value="{{productToEdit.manufacturer}}">
             </div>
         </div>
 
-        
+
     </div>
     <div class="row text-center">
-<div class="col-6"> 
-    <button type="submit" class="btn btn-primary">Update</button>
+        <div class="col-6">
+            <button type="submit" class="btn btn-primary">Update</button>
 
-</div>
-<div class="col-6">
+        </div>
+        <div class="col-6">
 
-    <a href="/products/{{productToEdit.id}}/delete" class="btn btn-danger">Delete</a>
-</div>
+            <a href="/products/{{productToEdit.id}}/delete" class="btn btn-danger">Delete</a>
+        </div>
 
     </div>
 
 </form>
-   
