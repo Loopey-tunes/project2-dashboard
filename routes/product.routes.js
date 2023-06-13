@@ -192,3 +192,25 @@ router.get("/:productId", isLoggedIn, async (req, res, next) => {
 });
 
 module.exports = router;
+
+//Search with filters
+
+router.post('/search', isLoggedIn, async (req, res, next) => {
+	console.log('route called');
+	try {
+		//building the query in JSON format
+		const { filter, input } = req.body;
+
+		const query = {};
+		query[filter] = { $regex: new RegExp(input, 'i') }; //regex to make it case insensitive
+
+		console.log('query: ', query);
+		const listOfProducts = await Product.find(query);
+		console.log('product list: ', listOfProducts);
+
+		res.render('product/product-list', { listOfProducts });
+	} catch (error) {
+		console.log(error);
+		next(error);
+	}
+});

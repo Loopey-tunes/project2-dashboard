@@ -1,6 +1,34 @@
 <h1 class="m-1">Products List</h1>
-{{#if listOfProducts}}
 
+
+<form method="POST" action="/products/search" class="m-3">
+    {{!-- <fieldset>
+        <legend>Filter and search</legend> --}}
+        <div class="row">
+            <div class="col-6 mb-3">
+                <label for="TextInput" class="form-label">Input</label>
+                <input type="text" id="textInput" name="input" class="form-control" placeholder="Search input">
+            </div>
+            <div class="col-6 mb-3">
+                <label for="Select" class="form-label">Filter by:</label>
+                <select id="Select" name="filter" class="form-select">
+                    <option value="name">Name</option>
+                    <option value="ref">Reference</option>
+                    <option value="stock">Stock</option>
+                    <option value="category">Category</option>
+                    <option value="Manufacturer">Manufacturer</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+</form>
+
+
+{{#if listOfProducts}}
 <table class="table p-4 ">
     <thead class="thead-dark ">
         <tr>
