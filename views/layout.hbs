@@ -21,7 +21,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          {{#if currentUser}}
+
+          {{#if user}}
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Users
@@ -41,14 +42,12 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           <li><a href="/auth/logout" class="nav-link">Logout</a></li>
+
           {{else}}
           <li><a class="nav-link" href="/auth/login">Login</a></li>
           <li><a class="nav-link" href="/auth/signup">Signup</a></li>
           <li><a class="nav-link disabled">Users List</a></li>
           <li><a class="nav-link disabled">Product List</a></li>
-
-
-
 
           {{/if}}
         </div>
