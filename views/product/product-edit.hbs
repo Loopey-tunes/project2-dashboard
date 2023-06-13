@@ -1,5 +1,8 @@
 <h2 class="m-1">Product's Details</h2>
-
+<hr>
+{{#if errorMessage}}
+<p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
+{{/if}}
 <form method="POST" action="/products/{{productToEdit.id}}/edit" class="m-3">
     <div class="row">
         <div class="col-6">

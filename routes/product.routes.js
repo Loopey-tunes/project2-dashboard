@@ -150,6 +150,7 @@ router.get("/:productId/edit", isLoggedIn, async (req, res, next) => {
   try {
     const productId = req.params.productId;
     const productToEdit = await Product.findById(productId);
+    console.log("productToEdit.id", productToEdit.id);
     res.render("product/product-edit", { productToEdit });
   } catch (e) {
     console.log("error to show update product form", e);
@@ -159,15 +160,36 @@ router.get("/:productId/edit", isLoggedIn, async (req, res, next) => {
 // // POST /products/:productId/edit
 router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
   const productId = req.params.productId;
-  const { name, ref, stock, image, category, keywords, manufacturer } =
-    req.body;
-  const location = {
-    row: req.body.row,
-    lane: req.body.lane,
-    shelf: req.body.shelf,
-  };
+  const {
+    name,
+    ref,
+    stock,
+    image,
+    category,
+    keywords,
+    manufacturer,
+    "location.row": row,
+    "location.lane": lane,
+    "location.shelf": shelf,
+  } = req.body;
 
   try {
+    if (!name || !ref || !stock || !manufacturer) {
+      res.render("product/product-edit", {
+        productToEdit: {
+          name,
+          ref,
+          stock,
+          image,
+          category,
+          keywords,
+          manufacturer,
+          id: productId,
+        },
+        errorMessage: "All fields (*) are mandatory.",
+      });
+      return;
+    }
     const updatedProduct = await Product.findByIdAndUpdate(
       productId,
       {
@@ -175,21 +197,53 @@ router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
         ref,
         stock,
         image,
-        location,
+        row,
+        lane,
+        shelf,
         category,
         keywords,
         manufacturer,
       },
       { new: true }
     );
-    console.log("THIS IS UPDATED PRODUCT ", updatedProduct);
     res.redirect("/products/list");
   } catch (e) {
-    console.log("error to put update product", e);
-    next(e);
+    console.log("error when editing product with the post request", e);
+    if (e instanceof mongoose.Error.ValidationError) {
+      console.log("this is a mongoose validator error");
+      res.status(400).render("product/product-edit", {
+        productToEdit: {
+          name,
+          ref,
+          stock,
+          image,
+          category,
+          keywords,
+          manufacturer,
+          id: productId,
+        },
+        errorMessage: e.message,
+      });
+    } else if (e.code === 11000) {
+      res.status(400).render("product/product-edit", {
+        productToEdit: {
+          name,
+          ref,
+          stock,
+          image,
+          category,
+          keywords,
+          manufacturer,
+          id: productId,
+        },
+        errorMessage: "Product Reference needs to be unique.",
+      });
+    } else {
+      console.log("this is NOT a mongoose validator error");
+      next(e);
+    }
   }
 });
-
 // DELETE PRODUCT
 // // POST /products/:productId/edit
 router.get("/:productId/delete", isLoggedIn, async (req, res, next) => {
@@ -236,6 +290,7 @@ router.post("/search", isLoggedIn, async (req, res, next) => {
     res.render("product/product-list", { listOfProducts });
   } catch (error) {
     console.log(error);
+    
     next(error);
   }
 });
