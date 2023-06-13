@@ -20,22 +20,25 @@
 <hr>
 
 <form action="/products/create" method="POST" class="m-3">
+    {{#if errorMessage}}
+        <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
+    {{/if}}
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
-                <label for="name" class="form-label">Product Name</label>
+                <label for="name" class="form-label">Product Name*</label>
                 <input type="text" class="form-control" id="name" name="name">
             </div>
         </div>
         <div class="col-4">
             <div class="mb-3">
-                <label for="ref" class="form-label">Product Ref.</label>
+                <label for="ref" class="form-label">Product Ref.*</label>
                 <input type="text" class="form-control" id="ref" name="ref">
             </div>
         </div>
         <div class="col-2">
             <div class="mb-3">
-                <label for="stock" class="form-label">Stock</label>
+                <label for="stock" class="form-label">Stock*</label>
                 <input type="number" class="form-control" id="stock" name="stock">
             </div>
         </div>
@@ -83,7 +86,7 @@
         </div>
         <div class="col-4">
             <div class="mb-3">
-                <label for="manufacturer" class="form-label">Manufacturer</label>
+                <label for="manufacturer" class="form-label">Manufacturer*</label>
                 <input type="text" class="form-control" id="manufacturer" name="manufacturer">
             </div>
         </div>
@@ -92,6 +95,6 @@
     </div>
     <div class="row">
 
-        <button type="submit" class="col-1 btn btn-primary">Update</button>
+        <button type="submit" class="col-1 btn btn-primary">Create</button>
     </div>
 </form>
