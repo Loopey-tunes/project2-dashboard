@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt"); //to encrypt password
-
+require("dotenv").config();
 const User = require("../models/User.model");
 
 const userData = [
