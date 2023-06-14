@@ -18,13 +18,9 @@ const mongoose = require("mongoose");
 //     console.error("Error connecting to mongo: ", err);
 //   });
 
-
-
-
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
   process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/project2-dashboard";
-  
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -47,6 +43,7 @@ async function run() {
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
+    console.log("Connection closed");
   }
 }
 run().catch(console.dir);
