@@ -1,38 +1,69 @@
 <div id="form">
   <h2>Sign Up</h2>
-  <form action="/auth/signup" method="POST">
-    
+  <form action="/auth/signup" method="POST" class="m-3">
+
     {{#if errorMessage}}
-      <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
+    <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
     {{/if}}
 
-    <label> Last name
-      <input type="text" name="lastName" placeholder="Your last name" />
-    </label>
-    <label> First name
-      <input type="text" name="firstName" placeholder="Your first name" />
-    </label>
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+    <div class="container d-flex">
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
+    </div>
+    <div class="row">
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-    <label> Role
-      <input type="text" name="role" placeholder="Your Role" />
-    </label>
+      <div class="col-4">
+        <label> First name</label>
+        <input class="form-control" type="text" name="firstName" placeholder="Your first name" />
+
+      </div>
+      <div class="col-4">
+        <label> Last name</label>
+        <input class="form-control" type="text" name="lastName" placeholder="Your last name" />
+
+      </div>
+      <div class="col-4">
+        <label> Username</label>
+        <input class="form-control" type="text" name="username" placeholder="Your username" />
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-4">
+        <label> Email</label>
+        <input class="form-control" type="email" name="email" placeholder="Your email" />
+      </div>
+
+      <div class="col-4">
+        <label> Password</label>
+        <input class="form-control" type="password" name="password" placeholder="Your password" />
+      </div>
+
+      <div class="col-4">
+        <label> Role</label>
+        <input class="form-control" type="text" name="role" placeholder="Your Role" />
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-4">
+        <label> Department</label>
+        <input class="form-control" type="text" name="department" placeholder="Your Department" />
+      </div>
+
+    </div>
 
     {{!-- need to change to select input later --}}
-    <label> Department
-      <input type="text" name="department" placeholder="Your Department" />
-    </label>
 
-    <button type="submit">Sign Up</button>
+
+
+    <div class="row">
+      <div class="col text-center m-3">
+        <button class="btn btn-primary" type="submit">Sign Up</button>
+      </div>
+    </div>
 
 
 
