@@ -40,8 +40,7 @@ router.post(
   isLoggedIn,
   fileUploader.single("image"),
   async (req, res, next) => {
-    const { name, ref, stock, category, keywords, manufacturer } =
-      req.body;
+    const { name, ref, stock, category, keywords, manufacturer } = req.body;
     const location = {
       row: req.body.row,
       lane: req.body.lane,
@@ -90,12 +89,6 @@ router.post(
 // IMPORT PRODUCTS
 // // POST /products/create
 router.post("/import", upload.single("product-list"), async (req, res) => {
-  // console.log(
-  // "REQUEST DETAILS OF THE UPLOAD....req.file",
-  // req.file,
-  // "REQUEST DETAILS OF THE UPLOAD....req.body",
-  // req.body
-  // );
   const results = [];
   if (!req.file) {
     res.render("product/product-create", {
@@ -166,18 +159,13 @@ router.get("/:productId/edit", isLoggedIn, async (req, res, next) => {
 // // POST /products/:productId/edit
 router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
   const productId = req.params.productId;
-  const {
-    name,
-    ref,
-    stock,
-    image,
-    category,
-    keywords,
-    manufacturer,
-    "location.row": row,
-    "location.lane": lane,
-    "location.shelf": shelf,
-  } = req.body;
+  const { name, ref, stock, image, category, keywords, manufacturer } =
+    req.body;
+  const location = {
+    row: req.body.row,
+    lane: req.body.lane,
+    shelf: req.body.shelf,
+  };
 
   try {
     if (!name || !ref || !stock || !manufacturer) {
@@ -186,10 +174,11 @@ router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
           name,
           ref,
           stock,
-          image,
+          location,
           category,
           keywords,
           manufacturer,
+          image,
           id: productId,
         },
         errorMessage: "All fields (*) are mandatory.",
@@ -202,10 +191,8 @@ router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
         name,
         ref,
         stock,
+        location,
         image,
-        row,
-        lane,
-        shelf,
         category,
         keywords,
         manufacturer,
@@ -222,6 +209,7 @@ router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
           name,
           ref,
           stock,
+          location,
           image,
           category,
           keywords,
@@ -236,6 +224,7 @@ router.post("/:productId/edit", isLoggedIn, async (req, res, next) => {
           name,
           ref,
           stock,
+          location,
           image,
           category,
           keywords,
