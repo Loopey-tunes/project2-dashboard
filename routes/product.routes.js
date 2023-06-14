@@ -2,6 +2,7 @@ const fs = require("fs");
 const mongoose = require("mongoose");
 const csv = require("csv-parser");
 const express = require("express");
+const fileUploader = require("../config/cloudinary.config");
 const upload = require("../middleware/upload");
 const router = express.Router();
 
