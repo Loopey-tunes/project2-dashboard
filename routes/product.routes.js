@@ -270,17 +270,66 @@ module.exports = router;
 //Search with filters
 
 router.post('/search', isLoggedIn, async (req, res, next) => {
-	console.log('route called');
 	try {
-		//building the query in JSON format
+		const query = {};
+
+		//query for name/ref/category/manufacturer filter
 		const { filter, input } = req.body;
 
-		const query = {};
-		query[filter] = { $regex: new RegExp(input, 'i') }; //regex to make it case insensitive
+		if (filter && input) {
+			query[filter] = { $regex: new RegExp(input, 'i') }; //regex to make it case insensitive
+		}
 
-		console.log('query: ', query);
+		//query for row/lane/shelf
+
+		const { row, lane, shelf } = req.body;
+
+		if (row || lane || shelf) {
+			const parsedRow = parseInt(row);
+			const parsedLane = parseInt(lane);
+			const parsedShelf = parseInt(shelf);
+
+			if (!isNaN(parsedRow)) {
+				query['location.row'] = parsedRow;
+			}
+			if (!isNaN(parsedLane)) {
+				query['location.lane'] = parsedLane;
+			}
+			if (!isNaN(parsedShelf)) {
+				query['location.shelf'] = parsedShelf;
+			}
+		}
+
+		//query for stock value
+
+		const { stockFilter, stockInput } = req.body;
+
+		if (stockFilter && stockInput) {
+			const parsedStockInput = parseInt(stockInput);
+
+			if (!isNaN(parsedStockInput)) {
+				switch (stockFilter) {
+					case 'gte':
+						query.stock = { $gte: parsedStockInput };
+						break;
+					case 'gt':
+						query.stock = { $gt: parsedStockInput };
+						break;
+					case 'lte':
+						query.stock = { $lte: parsedStockInput };
+						break;
+					case 'lt':
+						query.stock = { $lt: parsedStockInput };
+						break;
+					default:
+						break;
+				}
+			}
+		}
+
+		console.log('----------------query----------------> ', query);
+
 		const listOfProducts = await Product.find(query);
-		console.log('product list: ', listOfProducts);
 
 		res.render('product/product-list', { listOfProducts });
 	} catch (error) {
