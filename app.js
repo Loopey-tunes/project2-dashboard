@@ -16,8 +16,8 @@ hbs.registerHelper('increment', function (value) {
 	return parseInt(value) + 1;
 });
 hbs.registerHelper("sortingButtons", function (column, options) {
-  const ascButton = `<button onclick="window.location.href='/products/sort?col=${column}&ord=asc'" class="btn btn-light btn-sm" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .7rem;" >↑</button>`;
-  const descButton = `<button onclick="window.location.href='/products/sort?col=${column}&ord=desc'" class="btn btn-light btn-sm" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .7rem;" >↓</button>`;
+  const ascButton = `<button onclick="window.location.href='/products/sort?col=${column}&ord=asc'" class="btn btn-light btn-sm" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .1rem; --bs-btn-font-size: .6rem;" >↑</button>`;
+  const descButton = `<button onclick="window.location.href='/products/sort?col=${column}&ord=desc'" class="btn btn-light btn-sm" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .1rem; --bs-btn-font-size: .6rem;" >↓</button>`;
   return new hbs.SafeString(ascButton + descButton);
 });
 
