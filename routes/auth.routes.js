@@ -38,14 +38,6 @@ router.post('/signup', isLoggedOut, (req, res, next) => {
 		return;
 	}
 
-	/*   if (password.length < 6) {
-    res.status(400).render("auth/signup", {
-      errorMessage: "Your password needs to be at least 6 characters long.",
-    });
-
-    return;
-  } */
-
 	const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
 	if (!regex.test(password)) {
 		res.status(400).render('auth/signup', {
@@ -148,7 +140,7 @@ router.post('/login', isLoggedOut, (req, res, next) => {
 					// Add the user object to the session object
 					req.session.currentUser = user.toObject();
 					res.locals.user = req.session.currentUser;
-					console.log('--------- LOCALS ---------', res.locals.user);
+
 					// Remove the password field
 					delete req.session.currentUser.password;
 

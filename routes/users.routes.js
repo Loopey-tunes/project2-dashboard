@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
 
 // Require necessary (isLoggedOut and isLiggedIn) middleware in order to control access to specific routes
 const isLoggedOut = require('../middleware/isLoggedOut');
@@ -32,6 +33,8 @@ router.get('/edit/:id', isLoggedIn, async (req, res, next) => {
 
 router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
 	try {
+		const userId = req.params.id;
+
 		const {
 			'fullName.firstName': firstName,
 			'fullName.lastName': lastName,
@@ -41,11 +44,9 @@ router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
 			department,
 			role,
 			telephone,
-			password,
 		} = req.body;
 
-		const userId = req.params.id;
-		const userInfo = await User.findByIdAndUpdate(
+		await User.findByIdAndUpdate(
 			userId,
 			{
 				'fullName.firstName': firstName,
@@ -56,10 +57,19 @@ router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
 				department,
 				role,
 				telephone,
-				password,
 			},
 			{ new: true }
 		);
+
+		if (req.body.password) {
+			let password = req.body.password;
+
+			const salt = await bcrypt.genSalt();
+			const hashedPassword = await bcrypt.hash(password, salt);
+
+			await User.findByIdAndUpdate(userId, { password: hashedPassword });
+		}
+
 		res.redirect('/users/list');
 	} catch (error) {
 		next(error);
@@ -69,7 +79,6 @@ router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
 router.get('/delete/:id', isLoggedIn, async (req, res, next) => {
 	try {
 		const userId = req.params.id;
-		console.log(userId);
 		await User.findByIdAndDelete(userId);
 		res.redirect('/users/list');
 	} catch (error) {
