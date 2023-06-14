@@ -47,6 +47,13 @@ router.post(
       shelf: req.body.shelf,
     };
 
+
+    let imagePath;
+    if (req.file) {
+      imagePath = req.file.path;
+    } else {
+      imagePath = "/images/no-image.jpg";
+    }
     //Validate if all required fields are provided
     if (!name || !ref || !stock || !manufacturer) {
       res.render("product/product-create", {
@@ -64,7 +71,7 @@ router.post(
         category,
         keywords,
         manufacturer,
-        image: req.file.path,
+        image: imagePath,
       });
       res.redirect("/products/list");
     } catch (e) {
