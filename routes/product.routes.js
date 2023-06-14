@@ -40,22 +40,13 @@ router.post(
   isLoggedIn,
   fileUploader.single("image"),
   async (req, res, next) => {
-    const {
-      name,
-      ref,
-      stock,
-      category,
-      keywords,
-      manufacturer,
-      "location.row": row,
-      "location.lane": lane,
-      "location.shelf": shelf,
-    } = req.body;
-    // const location = {
-    //   row: req.body.row,
-    //   lane: req.body.lane,
-    //   shelf: req.body.shelf,
-    // };
+    const { name, ref, stock, category, keywords, manufacturer } =
+      req.body;
+    const location = {
+      row: req.body.row,
+      lane: req.body.lane,
+      shelf: req.body.shelf,
+    };
 
     //Validate if all required fields are provided
     if (!name || !ref || !stock || !manufacturer) {
@@ -70,9 +61,7 @@ router.post(
         name,
         ref,
         stock,
-        row,
-        lane,
-        shelf,
+        location,
         category,
         keywords,
         manufacturer,
