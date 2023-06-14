@@ -35,52 +35,68 @@ router.get("/create", isLoggedIn, async (req, res, next) => {
   }
 });
 // // POST /products/create
-router.post("/create", isLoggedIn, async (req, res, next) => {
-  const { name, ref, stock, image, category, keywords, manufacturer } =
-    req.body;
-  const location = {
-    row: req.body.row,
-    lane: req.body.lane,
-    shelf: req.body.shelf,
-  };
-
-  //Validate if all required fields are provided
-  if (!name || !ref || !stock || !manufacturer) {
-    res.render("product/product-create", {
-      errorMessage: "All fields (*) are mandatory.",
-    });
-    return;
-  }
-
-  try {
-    await Product.create({
+router.post(
+  "/create",
+  isLoggedIn,
+  fileUploader.single("image"),
+  async (req, res, next) => {
+    const {
       name,
       ref,
       stock,
-      image,
-      location,
       category,
       keywords,
       manufacturer,
-    });
-    res.redirect("/products/list");
-  } catch (e) {
-    console.log("error to post request when creating new product", e);
-    if (e instanceof mongoose.Error.ValidationError) {
-      console.log("this is a mongoose validator error");
-      res
-        .status(400)
-        .render("product/product-create", { errorMessage: e.message });
-    } else if (e.code === 11000) {
-      res.status(400).render("product/product-create", {
-        errorMessage: "Product Reference needs to be unique.",
+      "location.row": row,
+      "location.lane": lane,
+      "location.shelf": shelf,
+    } = req.body;
+    // const location = {
+    //   row: req.body.row,
+    //   lane: req.body.lane,
+    //   shelf: req.body.shelf,
+    // };
+
+    //Validate if all required fields are provided
+    if (!name || !ref || !stock || !manufacturer) {
+      res.render("product/product-create", {
+        errorMessage: "All fields (*) are mandatory.",
       });
-    } else {
-      console.log("this is NOT a mongoose validator error");
-      next(e);
+      return;
+    }
+
+    try {
+      await Product.create({
+        name,
+        ref,
+        stock,
+        row,
+        lane,
+        shelf,
+        category,
+        keywords,
+        manufacturer,
+        image: req.file.path,
+      });
+      res.redirect("/products/list");
+    } catch (e) {
+      console.log("error to post request when creating new product", e);
+      if (e instanceof mongoose.Error.ValidationError) {
+        console.log("this is a mongoose validator error");
+        res
+          .status(400)
+          .render("product/product-create", { errorMessage: e.message });
+      } else if (e.code === 11000) {
+        res.status(400).render("product/product-create", {
+          errorMessage: "Product Reference needs to be unique.",
+        });
+      } else {
+        console.log("this is NOT a mongoose validator error");
+        next(e);
+      }
     }
   }
-});
+);
 
 // IMPORT PRODUCTS
 // // POST /products/create
@@ -291,7 +307,7 @@ router.post("/search", isLoggedIn, async (req, res, next) => {
     res.render("product/product-list", { listOfProducts });
   } catch (error) {
     console.log(error);
-    
+
     next(error);
   }
 });
