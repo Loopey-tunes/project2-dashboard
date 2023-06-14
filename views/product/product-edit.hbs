@@ -3,7 +3,7 @@
 {{#if errorMessage}}
 <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
 {{/if}}
-<form method="POST" action="/products/{{productToEdit.id}}/edit" class="m-3">
+<form method="POST" action="/products/{{productToEdit.id}}/edit" enctype="multipart/form-data" class="m-3">
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
@@ -46,9 +46,15 @@
             </div>
         </div>
         <div class="col-3">
-            <div class="mb-3">
+            {{!-- <div class="mb-3">
                 <label for="image" class="form-label">Product Image</label>
                 <input type="text" class="form-control" id="image" name="image" value="{{productToEdit.image}}">
+            </div> --}}
+            <div class="mb-3">
+                <label for="image" class="form-label">Product Image</label>
+                <img src="{{productToEdit.image}}" alt="{{productToEdit.name}}" style="width:100px;">
+                <input type="hidden" id="existingImage" name="existingImage" value="{{productToEdit.image}}">
+                <input type="file" class="form-control" id="image" name="image">
             </div>
         </div>
 
