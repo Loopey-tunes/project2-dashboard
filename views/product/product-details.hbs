@@ -1,6 +1,10 @@
 <h2>Product Details</h2>
 <div class="m-5 card" style="width: 25rem;">
-    <img class="card-img-top" src="{{productToView.image}}" alt="No image">
+    <div style="width: 25rem; height: 25rem; overflow: hidden;">
+
+    <img style="object-fit: cover; width: 100%; height: 100%;" class="card img-fluid" src="{{productToView.image}}" alt="Product Image">
+    </div>
+    
     <div class="card-body">
         <h5 class="card-title">{{productToView.name}}</h5>
         <p class="card-text">
