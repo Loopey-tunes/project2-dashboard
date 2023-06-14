@@ -48,9 +48,9 @@ router.post('/edit/:id', isLoggedIn, async (req, res, next) => {
 		const userInfo = await User.findByIdAndUpdate(
 			userId,
 			{
-				firstName,
-				lastName,
-				username,
+				'fullName.firstName': firstName,
+				'fullName.lastName': lastName,
+				username: username,
 				email,
 				location,
 				department,
