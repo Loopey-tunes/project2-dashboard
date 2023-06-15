@@ -1,3 +1,7 @@
+<h2 class="m-1 mb-1 text-center">Login</h2>
+
+<hr class="mb-4">
+
 <form action="/auth/login" method="POST" class="m-3">
   {{#if errorMessage}}
   <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
@@ -12,5 +16,14 @@
       <input type="password" name="password" placeholder="Your password" class="form-control">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="row">
+    <div class="col text-end">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+    <div class="col text-start">
+      <a href="/auth/signup" class="btn btn-danger">Sign up</a>
+    </div>
+  </div>
+
+
 </form>
