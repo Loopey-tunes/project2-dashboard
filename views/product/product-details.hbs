@@ -1,27 +1,32 @@
-<h2>Product Details</h2>
+<h2 class="m-1 mb-4 text-center">Product Details</h2>
+
+<hr>
+
 <div class="m-5 card" style="width: 25rem;">
     <div style="width: 25rem; height: 25rem; overflow: hidden;">
 
-    <img style="object-fit: cover; width: 100%; height: 100%;" class="card img-fluid" src="{{productToView.image}}" alt="Product Image">
+        <img style="object-fit: cover; width: 100%; height: 100%;" class="card img-fluid" src="{{productToView.image}}"
+            alt="Product Image">
     </div>
-    
+
     <div class="card-body">
         <h5 class="card-title">{{productToView.name}}</h5>
         <p class="card-text">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">Product Reference: {{productToView.ref}} </li>
-                <li class="list-group-item">Stock: {{productToView.stock}} </li>
-                <li class="list-group-item">Location: row {{productToView.location.row}} - lane {{productToView.location.lane}} - shelf {{productToView.location.lane}}</li>
-                <li class="list-group-item">Category: {{productToView.category}} </li>
-                <li class="list-group-item">Manufacturer: {{productToView.manufacturer}} </li>
-                <li class="list-group-item">Key words: {{productToView.keywords}} </li>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Product Reference: {{productToView.ref}} </li>
+            <li class="list-group-item">Stock: {{productToView.stock}} </li>
+            <li class="list-group-item">Location: row {{productToView.location.row}} - lane
+                {{productToView.location.lane}} - shelf {{productToView.location.lane}}</li>
+            <li class="list-group-item">Category: {{productToView.category}} </li>
+            <li class="list-group-item">Manufacturer: {{productToView.manufacturer}} </li>
+            <li class="list-group-item">Key words: {{productToView.keywords}} </li>
 
-            </ul>
+        </ul>
         </p>
         <p class="text-center">
-        <a href="/products/list" class="btn btn-primary col-3">Back</a>
-        <a href="/products/{{productToView.id}}/edit" class="btn btn-primary col-3">Edit</a>
-        <a href="/products/{{productToView.id}}/delete" class="btn btn-danger col-3">Delete</a>
+            <a href="/products/list" class="btn btn-primary col-3">Back</a>
+            <a href="/products/{{productToView.id}}/edit" class="btn btn-primary col-3">Edit</a>
+            <a href="/products/{{productToView.id}}/delete" class="btn btn-danger col-3">Delete</a>
         </p>
 
 

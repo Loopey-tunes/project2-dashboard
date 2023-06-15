@@ -1,4 +1,6 @@
-<h1 id="top" class="m-1">Products List</h1>
+<h2 class="m-1 mb-4 text-center">Product List</h2>
+
+<hr>
 
 {{!-- //search by named filter --}}
 <form method="POST" action="/products/search" class="m-3">
@@ -52,7 +54,7 @@
     </div>
 
     <div class="row">
-        <div class="col mt-3 d-flex align-items-center">
+        <div class="col d-flex align-items-center">
             <div class=" col text-center align-items-center">
                 <button type="submit" class="btn btn-primary">Search</button>
             </div>
@@ -63,7 +65,7 @@
 
 
 </form>
-<hr class="mt-5 mb-3">
+<hr class="mt-4 mb-3">
 <div class="row">
     <div class="col text-center">
         <button onclick="window.location.href='/products/list'" class="btn btn-primary btn">All Products</button>

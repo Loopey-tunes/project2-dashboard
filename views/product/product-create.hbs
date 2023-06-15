@@ -1,16 +1,18 @@
-<h2 class="m-1 mb-4">Create New Product(s)</h2>
-{{!-- Error Message Handling --}}
-    {{#if errorMessage}}
-        <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
-    {{/if}}
-      
+<h2 class="m-1 mb-4 text-center">Create New Product(s)</h2>
+
 <hr>
+{{!-- Error Message Handling --}}
+{{#if errorMessage}}
+<p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
+{{/if}}
 
 
-    {{!-- Import products with csv --}}
+
+
+{{!-- Import products with csv --}}
 <div class="d-flex flex-row-reverse">
     <form class="form-inline row" action="/products/import" method="post" enctype="multipart/form-data">
-       
+
         <div class="form-inline from-group col col-8">
             <label for="file">Import from CSV</label>
             <input type="file" class="form-inline form-control form-control-file" id="file" aria-label="Import from CSV"
@@ -23,12 +25,12 @@
 
     </form>
 </div>
-<hr>
+
 <p class="text-warning">All fields (*) are mandatory.</p>
 
 {{!-- Create product with inputs form --}}
 <form action="/products/create" method="POST" enctype="multipart/form-data" class="m-3">
-    
+
     {{!-- ----------------Row----------------------}}
     <div class="row">
         <div class="col-6">
