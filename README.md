@@ -1,7 +1,7 @@
 # Filin Corporate Dashboard 
 
 ## Introduction
-Filin Corporate Dashboard is a full-stack web application intended for internal corporate use, facilitating HR and Inventory Management. Designed to meet the needs of real-world workplaces, it is business-oriented and meant for company employees and staff to use with ease. The app is a Minimum Viable Product (MVP) deployed on Heroku and it follows a comprehensive checklist ensuring robustness, functionality, and user satisfaction.
+Filin Corporate Dashboard is a full-stack web application intended for internal corporate use, facilitating HR and Inventory Management. Designed to meet the needs of real-world workplaces, it is business-oriented and meant for company employees and staff to use with ease. The app is a Minimum Viable Product (MVP) deployed on Adaptable and it follows a comprehensive checklist ensuring robustness, functionality, and user satisfaction.
 
 ## How It Works
 Built on a stack comprising of Express, Handlebars, JavaScript (JS), MongoDB, Mongoose and Bootstrap, the application offers an intuitive interface for managing HR and Inventory details. The app covers complete CRUD operations on the product and user model, allowing creation, reading, updating, and deletion of resources.
