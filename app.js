@@ -15,6 +15,13 @@ const hbs = require('hbs');
 hbs.registerHelper('increment', function (value) {
 	return parseInt(value) + 1;
 });
+hbs.registerHelper("sortingButtons", function (column, options) {
+  const ascButton = `<button onclick="window.location.href='/products/sort?col=${column}&ord=asc'" class="btn btn-light btn-sm" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .1rem; --bs-btn-font-size: .6rem;" >↑</button>`;
+  const descButton = `<button onclick="window.location.href='/products/sort?col=${column}&ord=desc'" class="btn btn-light btn-sm" style="--bs-btn-padding-y: .1rem; --bs-btn-padding-x: .1rem; --bs-btn-font-size: .6rem;" >↓</button>`;
+  return new hbs.SafeString(ascButton + descButton);
+});
+
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
