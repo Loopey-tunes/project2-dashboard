@@ -74,22 +74,40 @@
 
     <div class="card-body text-center flex-grow-1">
       <h5 class="card-title text-center mb-4">{{user.fullName.firstName}} {{user.fullName.lastName}}</h5>
+
+      {{#if user.email}}
       <p class="card-text">
         <strong>Email:</strong> {{user.email}}
+        {{/if}}
       </p>
+
+      {{#if user.username}}
       <p class="card-text">
         <strong>Username:</strong> {{user.username}}
       </p>
+      {{/if}}
+
+      {{#if user.department}}
       <p class="card-text">
         <strong>Department:</strong> {{user.department}}
       </p>
+      {{/if}}
+
+      {{#if user.role}}
       <p class="card-text">
         <strong>Role:</strong> {{user.role}}
       </p>
+      {{/if}}
+
+      {{#if user.telephone}}
       <p class="card-text">
         <strong>Telephone nº:</strong> {{user.telephone}}
       </p>
+      {{/if}}
+
+      <a href="/users/edit/{{user._id}}" class="mt-5 btn btn-primary">Edit</a>
       <a href="/auth/logout" class="mt-5 btn btn-danger">Logout</a>
+
     </div>
   </div>
 
