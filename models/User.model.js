@@ -30,6 +30,10 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    image: {
+      type: String,
+      default: '/images/no-image.jpg',
+    },
     department: {
       type: String,
       enum: [
