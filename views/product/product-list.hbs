@@ -2,61 +2,59 @@
 
 {{!-- //search by named filter --}}
 <form method="POST" action="/products/search" class="m-3">
-    {{!-- <fieldset>
-        <legend>Filter and search</legend> --}}
 
-        <div class="row">
-            <div class="col-4 mb-3">
-                <label for="Select" class="form-label">Filter by:</label>
-                <select id="Select" name="filter" class="form-select">
-                    <option value="name">Name</option>
-                    <option value="ref">Reference</option>
-                    <option value="category">Category</option>
-                    <option value="manufacturer">Manufacturer</option>
-                </select>
-            </div>
-            <div class="col-5 mb-3">
-                <label for="TextInput" class="form-label">Input</label>
-                <input type="text" id="textInput" name="input" class="form-control" placeholder="Search input">
-            </div>
-            <div class="col-3 mt-3 d-flex align-items-center">
-                <div class=" col text-center align-items-center">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-
+    <div class="row">
+        <div class="col-4 mb-3">
+            <label for="Select" class="form-label">Filter by:</label>
+            <select id="Select" name="filter" class="form-select">
+                <option value="name">Name</option>
+                <option value="ref">Reference</option>
+                <option value="category">Category</option>
+                <option value="manufacturer">Manufacturer</option>
+            </select>
         </div>
-
-        <div class="row">
-            <div class="col mb-4">
-                <label for="stock-select" class="form-label">Stock Number:</label>
-                <select id="stock-select" name="stockFilter" class="form-select">
-                    <option value="gte">Greater or equal to</option>
-                    <option value="gt">Greater than</option>
-                    <option value="lte">Lesser or equal to</option>
-                    <option value="lte">Lesser than</option>
-                </select>
-            </div>
-            <div class="col mb-2">
-                <label for="stock-input" class="form-label">Input</label>
-                <input type="number" id="stock-input" name="stockInput" class="form-control" placeholder="">
+        <div class="col-5 mb-3">
+            <label for="TextInput" class="form-label">Input</label>
+            <input type="text" id="textInput" name="input" class="form-control" placeholder="Search input">
+        </div>
+        <div class="col-3 mt-3 d-flex align-items-center">
+            <div class=" col text-center align-items-center">
+                <button type="submit" class="btn btn-primary">Search</button>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col mb-3">
-                <label for="location-input" class="form-label">Row</label>
-                <input type="number" id="row-input" name="row" class="form-control" placeholder="">
-            </div>
-            <div class="col mb-3">
-                <label for="location-input" class="form-label">Lane</label>
-                <input type="number" id="lane-input" name="lane" class="form-control" placeholder="">
-            </div>
-            <div class="col mb-3">
-                <label for="location-input" class="form-label">Shelf</label>
-                <input type="number" id="shelf-input" name="shelf" class="form-control" placeholder="">
-            </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-4">
+            <label for="stock-select" class="form-label">Stock Number:</label>
+            <select id="stock-select" name="stockFilter" class="form-select">
+                <option value="gte">Greater or equal to</option>
+                <option value="gt">Greater than</option>
+                <option value="lte">Lesser or equal to</option>
+                <option value="lte">Lesser than</option>
+            </select>
         </div>
+        <div class="col mb-2">
+            <label for="stock-input" class="form-label">Input</label>
+            <input type="number" id="stock-input" name="stockInput" class="form-control" placeholder="">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-3">
+            <label for="location-input" class="form-label">Row</label>
+            <input type="number" id="row-input" name="row" class="form-control" placeholder="">
+        </div>
+        <div class="col mb-3">
+            <label for="location-input" class="form-label">Lane</label>
+            <input type="number" id="lane-input" name="lane" class="form-control" placeholder="">
+        </div>
+        <div class="col mb-3">
+            <label for="location-input" class="form-label">Shelf</label>
+            <input type="number" id="shelf-input" name="shelf" class="form-control" placeholder="">
+        </div>
+    </div>
 
 
 
