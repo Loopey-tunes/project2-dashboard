@@ -1,7 +1,30 @@
 {{#if user}}
-<p>Welcome {{user.fullName.firstName}}</p>
 
-{{else}}
+<div class="container d-flex"
+    style="width: 15vw; height: 15vh; display: flex; justify-content: center; align-items: center;">
+    <img style="object-fit: contain; width: 100%; height: 100%;" class="img-fluid" src="images/company-logo.png"
+        alt="Product image">
+</div>
+
+
+<div class="container-fluid" {{!-- style="height: 50%;" --}}>
+    <h4 class="m-1 mt-5 mb-4">User Management</h4>
+    <hr class="mb-4">
+    <div class="container-fluid d-flex justify-content-center">
+        <a href="/users/list" class="m-4 btn btn-primary">List Users</a>
+        <a href="/auth/signup" class="m-4 btn btn-primary">Create New User</a>
+    </div>
+</div>
+
+
+<div class="container-fluid" {{!-- style="height: 50%;" --}}>
+    <h4 class="m-1 mt-4">Product Management</h4>
+    <hr class="mb-4">
+    <div class="container-fluid d-flex justify-content-center">
+        <a href="/products/list" class="m-4 btn btn-primary">List Products</a>
+        <a href="/products/create" class="m-4 btn btn-primary">Create New Product</a>
+    </div>
+</div>
 
 
 {{/if}}
