@@ -191,7 +191,7 @@ router.post(
   fileUploader.single("image"),
   async (req, res, next) => {
     const productId = req.params.productId;
-    const { name, ref, stock, image, category, keywords, manufacturer } =
+    const { name, ref, stock, category, keywords, manufacturer } =
       req.body;
       const location = {
       row: req.body.row,
