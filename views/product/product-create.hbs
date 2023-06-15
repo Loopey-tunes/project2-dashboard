@@ -1,12 +1,11 @@
 <h2 class="m-1 mb-4">Create New Product(s)</h2>
-
-<hr>
-
 {{!-- Error Message Handling --}}
     {{#if errorMessage}}
         <p class="error alert alert-warning" role="alert">{{errorMessage}}</p>
     {{/if}}
-        <p class="alert alert-info" role="alert">All fields (*) are mandatory.</p>
+      
+<hr>
+
 
     {{!-- Import products with csv --}}
 <div class="d-flex flex-row-reverse">
@@ -25,9 +24,12 @@
     </form>
 </div>
 <hr>
+<p class="text-warning">All fields (*) are mandatory.</p>
 
 {{!-- Create product with inputs form --}}
 <form action="/products/create" method="POST" enctype="multipart/form-data" class="m-3">
+    
+    {{!-- ----------------Row----------------------}}
     <div class="row">
         <div class="col-6">
             <div class="mb-3">
@@ -47,8 +49,9 @@
                 <input type="number" class="form-control" id="stock" name="stock">
             </div>
         </div>
-
     </div>
+
+    {{!-- ----------------Row----------------------}}
     <div class="row">
         <div class="col-3">
             <div class="mb-3">
@@ -74,8 +77,9 @@
                 <input type="file" class="form-control" id="image" name="image">
             </div>
         </div>
-
     </div>
+
+    {{!-- ----------------Row----------------------}}
     <div class="row">
         <div class="col-4">
             <div class="mb-3">
@@ -95,11 +99,10 @@
                 <input type="text" class="form-control" id="manufacturer" name="manufacturer">
             </div>
         </div>
-
-
     </div>
-    <div class="row">
 
+    {{!-- ----------------Button----------------------}}
+    <div class="row">
         <button type="submit" class="col-1 btn btn-primary">Create</button>
     </div>
 </form>
