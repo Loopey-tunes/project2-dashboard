@@ -16,12 +16,12 @@ const isLoggedOut = require('../middleware/isLoggedOut');
 const isLoggedIn = require('../middleware/isLoggedIn');
 
 // GET /auth/signup
-router.get('/signup', isLoggedOut, (req, res) => {
+router.get('/signup', (req, res) => {
 	res.render('auth/signup');
 });
 
 // POST /auth/signup
-router.post('/signup', isLoggedOut, (req, res, next) => {
+router.post('/signup', (req, res, next) => {
 	const { username, email, password, role, department } = req.body;
 	const fullName = {
 		firstName: req.body.firstName,
