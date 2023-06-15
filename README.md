@@ -4,15 +4,15 @@
 Filin Corporate Dashboard is a full-stack web application intended for internal corporate use, facilitating HR and Inventory Management. Designed to meet the needs of real-world workplaces, it is business-oriented and meant for company employees and staff to use with ease. The app is a Minimum Viable Product (MVP) deployed on Heroku and it follows a comprehensive checklist ensuring robustness, functionality, and user satisfaction.
 
 ## How It Works
-Built on a stack comprising Express, Handlebars, JavaScript (JS), MongoDB, Mongoose, CSS, HTML, and Bootstrap, the application offers an intuitive interface for managing HR and Inventory details. The app covers complete CRUD operations on the product model, allowing creation, reading, updating, and deletion of resources.
+Built on a stack comprising of Express, Handlebars, JavaScript (JS), MongoDB, Mongoose and Bootstrap, the application offers an intuitive interface for managing HR and Inventory details. The app covers complete CRUD operations on the product and user model, allowing creation, reading, updating, and deletion of resources.
 
 You can create new resources through a simple form or even import data from a CSV file if you need to create multiple products. Our read functionality allows you to view a list of products, filter through them, sort them, and display specific details of a single product. Update functionality provides a pre-populated form with the existing data of a product, easing the editing process. Of course, you can also delete a resource if necessary.
 
 The application has a robust validation system, providing proper feedback in the case of missing or invalid data during the creation and updating of resources.
 
-It includes user authentication, allowing new users to register and returning users to log in. The system handles errors gracefully, providing appropriate feedback in case of login attempts with missing fields or incorrect credentials. Once logged in, the user can also log out from their account.
+It includes user authentication, allowing new users to register and returning users to log in. The system handles errors gracefully, providing appropriate feedback in case of login attempts with missing fields or incorrect credentials. Once logged in, the user can also easily log out from their account.
 
-Certain features are available exclusively to logged-in users, ensuring the privacy and security of the system. This includes functionalities like creation, updating, and deletion of resources.
+The application also stores session information and makes it available in all of the pages, allowing us to display information conditionally. Certain features are available exclusively to logged-in users, ensuring the privacy and security of the system. This includes functionalities like creation, updating, and deletion of resources.
 
 ## Why This Project
 We chose this project with a view to the future. We envision the need for such applications in real corporate environments, where systems need to be business-oriented and cater to real employees. Filin Corporate Dashboard is not just a project for us, but a stepping stone towards our future careers, preparing us to design and build practical, user-friendly applications that serve tangible needs.
