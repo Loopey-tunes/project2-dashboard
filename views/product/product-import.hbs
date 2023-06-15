@@ -25,7 +25,8 @@
             <td class="align-middle"><a class="card-link" href="/products/{{this.id}}">{{this.name}}</a></td>
             <td class="align-middle">{{this.ref}}</td>
             <td class="align-middle">{{this.stock}}</td>
-            <td class="align-middle">{{#if this.image}}
+            
+            {{#if this.image}}
             <td class="align-middle text-center">
             
                 <!-- Button trigger modal -->
@@ -54,7 +55,9 @@
                     </div>
                 </div>
             </td>
+
             {{else}}
+            
             <td class="align-middle text-center">
             
                 <!-- Button trigger modal -->
@@ -83,7 +86,7 @@
                     </div>
                 </div>
             </td>
-            {{/if}}</td>
+            {{/if}}
             <td class="align-middle">{{this.location.row}}</td>
             <td class="align-middle">{{this.location.lane}}</td>
             <td class="align-middle">{{this.location.shelf}}</td>
