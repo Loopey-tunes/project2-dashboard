@@ -63,39 +63,59 @@
 
     {{!-- Side Panel --}}
     {{#if user}}
-    <div class="card flex-grow-1 d-none d-xl-flex" style="min-width: 15vw; min-height: 100%">
+    <div class="card flex-grow-1 d-none d-xl-flex" style="width: 15vw; min-height: 100%">
       {{#if user.image}}
-      <img class="card-img-top text-center" src="{{user.image}}" alt="user picture">
+      <img class="card-img-top d-flex text-center img-fluid" src="{{user.image}}" alt="user picture">
       {{else}}
       <img class="card-img-top text-center" src="/images/no-image.jpg" alt="placeholder picture">
-      {{/if}}
-
-      <div class="card-body text-center">
-        <h5 class="card-title text-center mb-4">{{user.fullName.firstName}} {{user.fullName.lastName}}</h5>
-        <p class="card-text">
-          <strong>Email:</strong> {{user.email}}
-        </p>
-        <p class="card-text">
-          <strong>Username:</strong> {{user.username}}
-        </p>
-        <p class="card-text">
-          <strong>Department:</strong> {{user.department}}
-        </p>
-        <p class="card-text">
-          <strong>Role:</strong> {{user.role}}
-        </p>
-        <p class="card-text">
-          <strong>Telephone nº:</strong> {{user.telephone}}
-        </p>
-        <a href="/auth/logout" class="mt-5 btn btn-danger">Logout</a>
-      </div>
     </div>
 
     {{/if}}
-    {{!-- View container --}}
-    <div class="container-fluid pl-3 pr-3 m-0 flex-grow-5" style="min-height: 100%;">
-      {{{body}}}
+
+    <div class="card-body text-center flex-grow-1">
+      <h5 class="card-title text-center mb-4">{{user.fullName.firstName}} {{user.fullName.lastName}}</h5>
+
+      {{#if user.email}}
+      <p class="card-text">
+        <strong>Email:</strong> {{user.email}}
+        {{/if}}
+      </p>
+
+      {{#if user.username}}
+      <p class="card-text">
+        <strong>Username:</strong> {{user.username}}
+      </p>
+      {{/if}}
+
+      {{#if user.department}}
+      <p class="card-text">
+        <strong>Department:</strong> {{user.department}}
+      </p>
+      {{/if}}
+
+      {{#if user.role}}
+      <p class="card-text">
+        <strong>Role:</strong> {{user.role}}
+      </p>
+      {{/if}}
+
+      {{#if user.telephone}}
+      <p class="card-text">
+        <strong>Telephone nº:</strong> {{user.telephone}}
+      </p>
+      {{/if}}
+
+      <a href="/users/edit/{{user._id}}" class="mt-5 btn btn-primary">Edit</a>
+      <a href="/auth/logout" class="mt-5 btn btn-danger">Logout</a>
+
     </div>
+  </div>
+
+  {{/if}}
+  {{!-- View container --}}
+  <div class="container-fluid pl-3 pr-3 m-0 flex-grow-5" style="min-height: 100%;">
+    {{{body}}}
+  </div>
 
   </div>
 
