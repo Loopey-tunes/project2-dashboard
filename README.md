@@ -1,4 +1,5 @@
-# Filin Corporate Dashboard 
+# Filin - Corporate Dashboard
+Check the live demo [here](https://filin-corporate-dashboard.adaptable.app), hosted on Adaptable.
 
 ## Introduction
 Filin Corporate Dashboard is a full-stack web application intended for internal corporate use, facilitating HR and Inventory Management. Designed to meet the needs of real-world workplaces, it is business-oriented and meant for company employees and staff to use with ease. The app is a Minimum Viable Product (MVP) deployed on Adaptable and it follows a comprehensive checklist ensuring robustness, functionality, and user satisfaction.
@@ -17,10 +18,31 @@ The application also stores session information and makes it available in all of
 ## Why This Project
 We chose this project with a view to the future. We envision the need for such applications in real corporate environments, where systems need to be business-oriented and cater to real employees. Filin Corporate Dashboard is not just a project for us, but a stepping stone towards our future careers, preparing us to design and build practical, user-friendly applications that serve tangible needs.
 
-## Future Enhancements
+## Future Improvements
 The current version of Filin Corporate Dashboard is responsive, ensuring a user-friendly experience across different devices. Going forward, we plan to continue refining and expanding its features, addressing more aspects of corporate requirements, and enhancing its performance and user interface.
 
 ## Contributions
-This project is the collective effort of me and my partner. We welcome constructive feedback and suggestions. If you encounter any issues or have any features to request, please raise an issue on this repository.
+This project is the collective effort by me and my partner. We welcome constructive feedback and suggestions. If you encounter any issues or have any features to request, please raise an issue on this repository.
 
 We hope Filin Corporate Dashboard proves to be a useful tool in managing your company's HR and Inventory needs. We look forward to improving it with your support.
+
+## Instructions
+
+You can fork this repository if you want to work on the app in your own development environment:
+
+- Press the green < > Code button in Github;
+- Copy the repository link (https://github.com/Loopey-tunes/project2-dashboard.git);
+- In your own IDE run git clone https://github.com/Loopey-tunes/project2-dashboard.git;
+- Install all dependencies (shown in package.json) with npm install;
+- Create a .env file that holds required environment variables:
+      PORT= NUMBER // You can set any NUMBER you want but we recomend choosing a number between 3000 and 5000;
+      SESS_SECRET= "sessionSecret" // This can be any STRING you like. We recomend choosing something complex;
+      MONGODB_URI= "(mongo database URI)" // You can setup a local database using [MongoDB Compass](https://www.mongodb.com/). By default it connects to 'mongodb://127.0.0.1:27017/project2-dashboard';
+      CLOUDINARY_NAME= "cloudinaryName" // The following 3 variables require signing up to [Cloudinary]("https://cloudinary.com/") and use the variables they assign you.
+      CLOUDINARY_KEY= "numberString" //
+      CLOUDINARY_SECRET= 'string' //
+- Run the project locally with the command "npm run dev" or "node server.js";
+- In your browser, navigate to http://localhost:PORT/, where port is the NUMBER you assigned in the .env file, for example, http://localhost:3000/
+
+
+  
